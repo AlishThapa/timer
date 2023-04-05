@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       title: 'Countdown',
-      home: MyHomePage1(),
+      home: MyHomePage(),
     );
   }
 }

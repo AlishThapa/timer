@@ -10,6 +10,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
+  final TextEditingController controller = TextEditingController();
   //defining a constant time for timer
   static const maxSeconds = 110;
   int seconds = maxSeconds;
@@ -66,6 +68,18 @@ class _MyHomePageState extends State<MyHomePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              Container(
+                padding: const EdgeInsets.all(35),
+                child: TextField(
+                  controller: controller,
+                  keyboardType: TextInputType.number,
+                  onSubmitted: (value) {
+                    setState(() {
+                      seconds = int.parse(controller.text);
+                    });
+                  },
+                ),
+              ),
               buildTimer(),
               const SizedBox(height: 40),
               buildButtons(),
